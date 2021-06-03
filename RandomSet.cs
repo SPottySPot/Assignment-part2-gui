@@ -15,11 +15,12 @@ namespace Assignment_part2_gui
         public int bubblePasses = 0;
         public int oddEvenPasses = 0;
 
-
+        //constructor
         public RandomSet(int num)
         {
             for (int i = 0; i < num; i++)
             {
+                //resizes and then adds to the array
                 Array.Resize(ref arr, arr.Length + 1);
                 arr[arr.Length - 1] = randomGenerator.Next(99) + 1;
             }
@@ -49,6 +50,7 @@ namespace Assignment_part2_gui
             }
             return -1;
         }
+        //the given bubble sort algorithm
         public int[] bubbleSort(int[] data)
         {
             int lenD = data.Length;
@@ -72,6 +74,7 @@ namespace Assignment_part2_gui
             return data;
         }
 
+        //make the given algorithm work for my array and sort the array in a seperate array 
         public void sortBubble()
         {
             Array.Resize(ref sortedArr, arr.Length);
@@ -79,6 +82,7 @@ namespace Assignment_part2_gui
             sortedArr = bubbleSort(sortedArr);
         }
 
+        //given odd even sort
         public int[] oddEvenSort(int[] list)
         {
             int passes = 0;
@@ -114,14 +118,17 @@ namespace Assignment_part2_gui
             return list;
         }
 
+        //makes the sorted array reset and then sorts using the odd even sort function
         public void sortOddEven()
         {
             sortedArr = arr;
             sortedArr = oddEvenSort(sortedArr);
         }
 
+        //prints array to screen
         public void printArray()
         {
+            //prints each item in array to screen
             for (int i = 0; i < arr.Length; i++)
             {
                 Console.Write(arr[i] + ", ");
@@ -129,6 +136,7 @@ namespace Assignment_part2_gui
             Console.WriteLine();
         }
 
+        //same as print array just in the sorted array
         public void printSortedArray()
         {
             for (int i = 0; i < sortedArr.Length; i++)
@@ -138,6 +146,7 @@ namespace Assignment_part2_gui
             Console.WriteLine();
         }
 
+        //writes the array to a file
         public void writeFile(string filename)
         {
             try
